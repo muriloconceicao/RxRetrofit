@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RxRetrofit</string>
+    <string name="loadPost">Carregar</string>
+    <string name="postTitle">Título:</string>
 </resources>
