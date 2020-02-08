@@ -21,8 +21,13 @@ public class MainPresenterImpl implements MainPresenter {
         compositeDisposable = new CompositeDisposable();
         compositeDisposable.add(api.getPosts().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<List<PostModel>>() {
             @Override
-            public void accept(List<PostModel> postModels){
+            public void accept(List<PostModel> postModels) {
                 displayPost(postModels);
+            }
+        },  new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) {
+                throwable.printStackTrace();
             }
         }));
     }
